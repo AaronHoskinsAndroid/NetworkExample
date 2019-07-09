@@ -16,9 +16,13 @@ import examples.aaronhoskins.com.networkexample.model.datasource.remote.okhttp3.
 import examples.aaronhoskins.com.networkexample.model.datasource.remote.okhttp3.OkHttpResponseCallback;
 import examples.aaronhoskins.com.networkexample.model.datasource.remote.okhttp3.OkhttpHelper;
 import examples.aaronhoskins.com.networkexample.model.datasource.remote.retrofit.RetrofitHelper;
+import examples.aaronhoskins.com.networkexample.model.datasource.remote.rxjava.Callback;
+import examples.aaronhoskins.com.networkexample.model.datasource.remote.rxjava.RandomUserRepo;
 import examples.aaronhoskins.com.networkexample.model.randomuser.RandomUserResponse;
 
-public class MainActivity extends AppCompatActivity implements OkHttpResponseCallback {
+public class MainActivity extends AppCompatActivity
+        implements OkHttpResponseCallback,
+        Callback {
     public static final String IMAGE_URL
             = "https://www.geek.com/wp-content/uploads/2018/06/goku_large-625x352.png";
     //Declare views
@@ -70,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements OkHttpResponseCal
 //        }
 
         new RetrofitHelper().getAsyncRandomUsers(5, "female");
+        RandomUserRepo.getRandomUsers(this);
     }
 
 
@@ -80,4 +85,8 @@ public class MainActivity extends AppCompatActivity implements OkHttpResponseCal
     }
 
 
+    @Override
+    public void getRandomUserResponse(RandomUserResponse randomMeResponse) {
+        Log.d("TAG_RX", randomMeResponse.getResults().get(0).getEmail());
+    }
 }

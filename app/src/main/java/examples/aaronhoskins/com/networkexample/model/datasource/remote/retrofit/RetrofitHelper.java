@@ -27,6 +27,9 @@ public class RetrofitHelper {
     public RandomService getService() {
         return getRetrofitInstance().create(RandomService.class);
     }
+    public RandomObservableService getObservableService() {
+        return getRetrofitInstance().create(RandomObservableService.class);
+    }
 
     static RandomUserResponse randomUserResponse;
     public RandomUserResponse getSyncRandomUserResponse(final int results, final String gender) throws Exception {
