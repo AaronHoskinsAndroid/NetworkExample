@@ -11,8 +11,8 @@ public class RandomUserRepo {
         new RetrofitHelper()
                 .getObservableService()
                 .getRandomUsers("5", "female")
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new RandomUserObserver(callback));
     }
 }

@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static examples.aaronhoskins.com.networkexample.model.datasource.remote.retrofit.UrlConstants.BASE_URL;
@@ -21,6 +22,7 @@ public class RetrofitHelper {
                 .baseUrl(BASE_URL)
                 .client(OkhttpHelper.getClient())
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
