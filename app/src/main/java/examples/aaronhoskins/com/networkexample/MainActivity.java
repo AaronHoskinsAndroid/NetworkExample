@@ -15,6 +15,7 @@ import examples.aaronhoskins.com.networkexample.model.datasource.remote.httpurlc
 import examples.aaronhoskins.com.networkexample.model.datasource.remote.okhttp3.OkHttpAsyncTask;
 import examples.aaronhoskins.com.networkexample.model.datasource.remote.okhttp3.OkHttpResponseCallback;
 import examples.aaronhoskins.com.networkexample.model.datasource.remote.okhttp3.OkhttpHelper;
+import examples.aaronhoskins.com.networkexample.model.datasource.remote.retrofit.RetrofitHelper;
 import examples.aaronhoskins.com.networkexample.model.randomuser.RandomUserResponse;
 
 public class MainActivity extends AppCompatActivity implements OkHttpResponseCallback {
@@ -54,12 +55,21 @@ public class MainActivity extends AppCompatActivity implements OkHttpResponseCal
 //            }
 //        });
 //        thread.start();
-        Thread httpurlconnThread = new Thread(new HttpURLConnectionRunnable(tvEmailDisplay));
-        httpurlconnThread.start();
-       OkhttpHelper.getAsyncroniousOkHttpResponce(this);
+//        Thread httpurlconnThread = new Thread(new HttpURLConnectionRunnable(tvEmailDisplay));
+//        httpurlconnThread.start();
+//       OkhttpHelper.getAsyncroniousOkHttpResponce(this);
+//
+//        OkHttpAsyncTask okHttpAsyncTask = new OkHttpAsyncTask();
+//        okHttpAsyncTask.execute();
+//
+//        try {
+//            RandomUserResponse randomUserResponse = new RetrofitHelper().getSyncRandomUserResponse(5, "female");
+//            Log.d("TAG_Retrofit", "onCreate: " + randomUserResponse.getResults().get(0).getEmail());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        OkHttpAsyncTask okHttpAsyncTask = new OkHttpAsyncTask();
-        okHttpAsyncTask.execute();
+        new RetrofitHelper().getAsyncRandomUsers(5, "female");
     }
 
 
@@ -68,4 +78,6 @@ public class MainActivity extends AppCompatActivity implements OkHttpResponseCal
         Log.d("TAG", "randomUserResponseFromOkHttp: "
                 + response.getResults().get(0).getEmail());
     }
+
+
 }

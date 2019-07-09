@@ -32,6 +32,9 @@ dependencies {
     //Okhttp3
     implementation("com.squareup.okhttp3:okhttp:4.0.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.0.0")
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

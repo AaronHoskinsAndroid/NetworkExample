@@ -25,7 +25,7 @@ public class OkhttpHelper {
 //        this.okHttpResponseCallback = okHttpResponseCallback;
 //    }
 
-    private static OkHttpClient getClient() {
+    public static OkHttpClient getClient() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
 
